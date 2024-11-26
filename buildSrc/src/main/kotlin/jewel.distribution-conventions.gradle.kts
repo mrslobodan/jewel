@@ -52,6 +52,8 @@ tasks.register<Exec>("packageApp") {
 		"--name", "Jewel",
 		"--main-jar", tasks.jar.get().archiveFileName.get(),
 		"--main-class", "com.slobodanzivanovic.jewel.core.MainKt",
+		"--app-version", "1.0.0",
+		"--copyright", "Copyright (C) 2024 Slobodan Zivanovic",
 //		"--icon", currentIcon,
 		"--type", when {
 			os.contains("windows") -> "exe"
@@ -74,7 +76,10 @@ tasks.register<Exec>("packageApp") {
 			os.contains("mac") -> {
 				commandLine.addAll(
 					listOf(
-						"--mac-package-identifier", "com.slobodanzivanovic.jewel"
+						"--mac-package-identifier", "com.slobodanzivanovic.jewel",
+						"--mac-package-name", "Jewel",
+						"--mac-package-signing-prefix", "com.slobodanzivanovic",
+						"--java-options", "-Xdock:name=Jewel"
 					)
 				)
 			}
