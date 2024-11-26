@@ -4,6 +4,7 @@ dependencyResolutionManagement {
 	@Suppress("UnstableApiUsage")
 	repositories {
 		mavenCentral()
+		gradlePluginPortal()
 	}
 
 	versionCatalogs {
